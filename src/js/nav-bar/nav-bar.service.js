@@ -1,1 +1,3 @@
-angular.module('myApp');
+(function() {
+  angular.module('myApp');
+})();
