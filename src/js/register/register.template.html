@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="centered">
+    <form class="form-horizontal" ng-submit="register()">
+      <br />
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+          <label for="email" class="form-control-label">Email Address</label>
+          <input type="text" class="form-control" placeholder="john.doe@email.com" ng-model="user.email" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+          <label for="password" class="form-control-label">Password</label>
+          <input type="password" class="form-control" placeholder="Password123" ng-model="user.password" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-1">
+          <label for="firstName" class="form-control-label">First Name</label>
+          <input type="text" class="form-control" placeholder="John" ng-model="user.names.firstName" />
+        </div>
+        <div class="col-lg-5">
+          <label for="lastName" class="form-control-label">Last Name</label>
+          <input type="text" class="form-control" placeholder="Doe" ng-model="user.names.lastName" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+          <label for="username" class="form-control-label">Username</label>
+          <input type="text" class="form-control" placeholder="john_doe1964" ng-model="user.username" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-1">
+          <label for="dob" class="form-control-label">Date of Birth</label>
+          <input type="date" class="form-control" ng-model="user.dob" />
+        </div>
+        <div class="col-lg-5">
+          <label for="phone" class="form-control-label">Phone Number</label>
+          <input type="text" class="form-control" placeholder="555-555-5555" ng-model="user.phone" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-3 col-lg-offset-1">
+          <label for="lat" class="form-control-label">Latitude</label>
+          <input type="text" class="form-control" placeholder="39.7392 N" ng-model="user.address.geo.lat" />
+        </div>
+        <div class="col-lg-3">
+          <label for="lng" class="form-control-label">Longitude</label>
+          <input type="text" class="form-control" placeholder="104.9903 W" ng-model="user.address.geo.lng" />
+        </div>
+        <div class="col-lg-4">
+          <label for="slug" class="form-control-label">Unique URL ID</label>
+          <input type="text" class="form-control" placeholder="(test-example-1234)" ng-model="user.slug" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+          <button type="submit" class="btn btn-success btn-md wide">Submit</button>
+        </div>
+      </div>
+      <br />
+    </form>
+  </div>
+</div>
