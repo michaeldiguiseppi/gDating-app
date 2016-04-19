@@ -1,0 +1,13 @@
+<div class="well well-lg top-down">
+  <div class="row">
+    <div class="col-lg-4">
+      <img ng-src="{{member.avatar}}" alt="member_picture" />
+    </div>
+    <div class="col-lg-8">
+      <h4>{{ member.username }}</h4>
+      <p>
+        Date of Birth: {{ member.dob | date:"MM/dd/yyyy" }}
+      </p>
+    </div>
+  </div>
+</div>
