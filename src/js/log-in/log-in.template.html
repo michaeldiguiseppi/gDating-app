@@ -1,10 +1,25 @@
 <div class="container">
-  <form class="form-horizontal">
-    <input type="text" />
-    <button type="submit">Submit</button>
-  </form>
+  <div class="centered">
+    <form class="form-horizontal" ng-submit="logIn()">
+      <br />
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+          <input type="text" class="form-control" placeholder="Email Address" ng-model="user.email" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+          <input type="password" class="form-control" placeholder="Password" ng-model="user.password" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+          <button type="submit" class="btn btn-success btn-md wide">Submit</button>
+        </div>
+      </div>
+      <br />
+    </form>
+  </div>
 </div>
-
-<p>
-  HELLO!!!!
-</p>
