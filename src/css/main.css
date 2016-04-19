@@ -2,3 +2,51 @@
 .navbar {
   border-radius: 0;
 }
+
+body {
+  background-image: url('../images/denver_skyline.jpg');
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size:cover;
+}
+
+.centered {
+  background-color: white;
+  height: 100%;
+  width: 500px;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.wide {
+  width: 100%;
+}
+
+.well {
+  background-color: rgba(96, 92, 92, 0.68);
+  color: white;
+}
+
+.well h4 {
+  color: white;
+}
+
+.inline-none {
+  text-align: center;
+  list-style-type: none;
+}
+
+li.inline {
+  display: inline;
+  color: white;
+}
+
+.inline a {
+  color: white;
+  text-decoration: none;
+}
+
+.top-down {
+  margin-top: 50px;
+}
