@@ -16,6 +16,9 @@
         setUserInfo: function(user) {
           $window.localStorage.setItem('user', JSON.stringify(user.data.data.user));
           $window.localStorage.setItem('token', JSON.stringify(user.data.data.token));
+        },
+        getUserInfo: function() {
+          return $window.localStorage.getItem('user');
         }
       };
     }]);

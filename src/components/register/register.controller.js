@@ -2,9 +2,9 @@
   angular.module('myApp')
     .controller('RegisterCtrl', RegisterCtrl);
 
-  RegisterCtrl.$inject = ['$scope', 'RegisterService'];
+  RegisterCtrl.$inject = ['$scope', 'RegisterService', '$state'];
 
-  function RegisterCtrl ($scope, RegisterService) {
+  function RegisterCtrl ($scope, RegisterService, $state) {
     $scope.user = {};
     $scope.register = function() {
       console.log(this.user);
