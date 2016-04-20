@@ -6,7 +6,7 @@
         getAll: function(resource) {
           return $http({
             method: 'GET',
-            url: baseUrl + '/' + resource + '?limit=10'
+            url: baseUrl + '/' + resource
           }).then(function(data) {
             return data;
           }).catch(function(err) {
