@@ -2,9 +2,10 @@
   <div ng-show="loading">
     <img class="middle" src="/images/ajax-loader.gif" />
   </div>
+
   <div ng-show="!loading" ng-repeat="member in members">
-    <a ui-sref="members.member">
-      <div class="well well-lg" ng-click="getOne(member._id)">
+    <a ui-sref="members.view({ id: member._id })">
+      <div class="well well-lg">
         <div class="row">
           <div class="col-lg-4">
             <img ng-src="{{member.avatar}}" alt="member_picture" />
