@@ -11,6 +11,11 @@
               console.log(data.data.data[0]);
               return data.data.data;
             });
+        },
+        getOne: function(id) {
+          return crudService.getOne('members', id).then(function(data) {
+            return data.data.data;
+          });
         }
       };
     }

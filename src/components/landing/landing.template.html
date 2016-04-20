@@ -1,0 +1,21 @@
+<div class="text-center">
+  <h1 class="white-background">gDating: Dating for Nerds</h1>
+</div>
+
+<div class="bottom">
+  <div class="row">
+    <div class="col-lg-4" ng-repeat="member in members">
+      <div class="well well-lg quote">
+        <div class="col-lg-4">
+          <img ng-src="{{member.avatar}}" alt="member_img"/>
+        </div>
+        <div class="col-lg-8 white">
+            <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <small class="white"><cite>{{ member.names.firstName }}</cite></small>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
