@@ -2,11 +2,7 @@
 (function() {
     angular.module('myApp')
     .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-      //
-      // For any unmatched url, redirect to /
       $urlRouterProvider.otherwise("/");
-      //
-      // Now set up the states
       $stateProvider
         .state('home', {
           url: "/",
@@ -51,35 +47,18 @@
             requireLogin: false,
           }
         });
-        // $httpProvider.interceptors.push('authInterceptor');
     });
 
     angular.module('myApp')
       .run(function($rootScope, $state, $window) {
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
           var requireLogin = toState.data.requireLogin;
-          var currentUser = $window.localStorage.getItem('token');
-          if (requireLogin && !currentUser) {
+          $rootScope.currentUser = $window.localStorage.getItem('user');
+          if (requireLogin && !$rootScope.currentUser) {
             event.preventDefault();
             $state.go('login');
           }
         });
       });
-
-// angular.module('myApp')
-//   .run(function($rootScope, $location, $window, authService) {
-//     // check if token is there
-//     $rootScope.$on('$stateChangeStart', function(event, next, current) {
-//       // if restricted and no token
-//       if (next.authenticate && !authService.isAuthenticated()) {
-//         $location.path('/login');
-//       }
-//       // if token and prevent logged in
-//       if (authService.isAuthenticated() && next.authenticate) {
-//         $location.path('/');
-//       }
-//     });
-//   });
-
 
 })();

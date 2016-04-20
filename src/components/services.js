@@ -67,46 +67,4 @@
       };
     }]);
 
-  //   angular.module('myApp')
-  //     .service('authService', ['$http', '$window', function($http, $window) {
-  //       var user = {};
-  //       return {
-  //         logout: function(user) {
-  //           user = null;
-  //           $window.localStorage.clear();
-  //           $window.location.href = '/';
-  //         },
-  //         setUserInfo: function(userData) {
-  //           $window.localStorage.setItem('user', JSON.stringify(userData.data.data.user));
-  //           $window.localStorage.setItem('token', JSON.stringify(userData.data.data.token));
-  //         },
-  //         getUserInfo: function() {
-  //           return $window.localStorage.getItem('user');
-  //         },
-  //         isAuthenticated: function() {
-  //           return ($window.localStorage.getItem('user') && $window.localStorage.getItem('token'));
-  //         }
-  //       };
-  //     }]);
-  //
-  // angular.module('myApp')
-  //   .service('authInterceptor', ['$window', function($window){
-  //     return {
-  //       // always make sure to return anything you use here!
-  //       request: function(config){
-  //         // check for token in headers
-  //         // config.headers['X-requested-with'] = XMLHttpRequest;
-  //         var token = $window.localStorage.getItem('token');
-  //         if (token) {
-  //           config.headers.Authorization = "Bearer " + token;
-  //         }
-  //         return config;
-  //       },
-  //       responseError: function(err){
-  //         // if header auth is not present throw an error
-  //         return err;
-  //       }
-  //     };
-  //   }]);
-
 })();
