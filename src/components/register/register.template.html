@@ -1,5 +1,10 @@
 <div class="container">
   <div class="centered">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="alert alert-danger" ng-repeat="(key, error) in errors">
+        <p class="text-center">{{ error.message }}</p>
+      </div>
+    </div>
     <form class="form-horizontal" ng-submit="register()">
       <br />
       <div class="row">
