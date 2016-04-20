@@ -1,7 +1,7 @@
 angular.module('myApp')
   .filter('gender', function() {
     return function(input) {
-      var genders = ['Male', 'Female', 'Other', 'Decline to Answer'];
+      var genders = ['Male', 'Female', 'Other', 'Declined to Answer'];
       return genders[input];
     };
   });
