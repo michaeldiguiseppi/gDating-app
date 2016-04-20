@@ -15,6 +15,16 @@
             <p>
               Date of Birth: {{ member.dob | date:"MM/dd/yyyy" }}
             </p>
+            <p>
+              Gender: {{ member.gender | gender }}
+            </p>
+            <p>
+              Interested in: {{ member.interestedIn | interested }}
+            </p>
+            <hr />
+            <p>
+                {{ member.email }}
+            </p>
           </div>
         </div>
       </div>
