@@ -8,7 +8,19 @@ body {
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
-  background-size:cover;
+  background-size: cover;
+}
+
+.white-back {
+  background-color: rgba(250, 250, 250, 0.62);;
+}
+
+.white-back label {
+  color: black;
+}
+
+.white-back .form-control {
+  color: black;
 }
 
 .white-background {
