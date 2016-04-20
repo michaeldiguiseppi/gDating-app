@@ -9,8 +9,9 @@
             url: baseUrl + '/auth/login',
             data: data,
           }).then(function(data) {
-            console.log('Token: ', data);
             return data;
+          }).catch(function(err) {
+            return err;
           });
         },
         setUserInfo: function(user) {

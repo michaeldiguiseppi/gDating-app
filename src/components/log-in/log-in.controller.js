@@ -8,9 +8,12 @@
     $scope.user = {};
     $scope.login = function() {
       LoginService.login(this.user).then(function(data) {
-        console.log('Returned data: ', data);
-        LoginService.setUserInfo(data);
-        $state.go('members');
+        if (data.status === 200) {
+          LoginService.setUserInfo(data);
+          $state.go('members');
+        } else {
+          $scope.error = "Email or Password is incorrect.  Please try again.";
+        }
       });
     };
 

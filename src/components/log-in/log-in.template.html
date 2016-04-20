@@ -1,5 +1,10 @@
 <div class="container">
   <div class="centered">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="alert alert-danger" ng-show="error">
+        <p class="text-center">{{ error }}</p>
+      </div>
+    </div>
     <form class="form-horizontal" ng-submit="login()">
       <br />
       <div class="row">
