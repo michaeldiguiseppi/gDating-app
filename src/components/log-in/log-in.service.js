@@ -19,6 +19,11 @@
         },
         getUserInfo: function() {
           return $window.localStorage.getItem('user');
+        },
+        logout: function(user) {
+          user = null;
+          $window.localStorage.clear();
+          $window.location.href = '/';
         }
       };
     }]);

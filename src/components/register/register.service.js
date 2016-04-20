@@ -1,6 +1,6 @@
 (function() {
   angular.module('myApp')
-    .service('RegisterService', ['$http', function($http) {
+    .service('RegisterService', ['$http', '$window', function($http, $window) {
       var baseUrl = 'http://galvanize-student-apis.herokuapp.com/gdating';
       return {
         register: function(data) {

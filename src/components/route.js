@@ -11,6 +11,7 @@
           authenticate: false,
           data: {
             requireLogin: false,
+            blockLogin: true,
           }
         })
         .state('members', {
@@ -36,6 +37,7 @@
           authenticate: false,
           data: {
             requireLogin: false,
+            blockLogin: true,
           }
         })
         .state('register', {
@@ -45,6 +47,35 @@
           authenticate: false,
           data: {
             requireLogin: false,
+            blockLogin: true,
+          }
+        })
+        .state('search', {
+          url: "/search",
+          templateUrl: "components/members/members.template.html",
+          authenticate: false,
+          data: {
+            requireLogin: true,
+          }
+        })
+        .state('profile', {
+          url: "/profile",
+          templateUrl: "components/members/members.template.html",
+          authenticate: false,
+          data: {
+            requireLogin: true,
+          }
+        })
+        .state('logout', {
+          authenticate: false,
+          controller: function($scope, $rootScope, LoginService) {
+            function logout () {
+              LoginService.logout($rootScope.currentUser);
+            }
+            logout();
+          },
+          data: {
+            requireLogin: true,
           }
         });
     });
@@ -53,10 +84,15 @@
       .run(function($rootScope, $state, $window) {
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
           var requireLogin = toState.data.requireLogin;
+          var blockLogin = toState.data.blockLogin;
           $rootScope.currentUser = $window.localStorage.getItem('user');
           if (requireLogin && !$rootScope.currentUser) {
             event.preventDefault();
             $state.go('login');
+          }
+          if (blockLogin && $rootScope.currentUser) {
+            event.preventDefault();
+            $state.go('members');
           }
         });
       });

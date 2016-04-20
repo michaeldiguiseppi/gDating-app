@@ -2,9 +2,9 @@
   angular.module('myApp')
     .controller('LoginCtrl', LoginCtrl);
 
-  LoginCtrl.$inject = ['$scope', 'LoginService', '$state'];
+  LoginCtrl.$inject = ['$scope', '$rootScope', 'LoginService', '$state'];
 
-  function LoginCtrl ($scope, LoginService, $state) {
+  function LoginCtrl ($scope, $rootScope, LoginService, $state) {
     $scope.user = {};
     $scope.login = function() {
       LoginService.login(this.user).then(function(data) {
@@ -13,5 +13,6 @@
         $state.go('members');
       });
     };
+
   }
 })();

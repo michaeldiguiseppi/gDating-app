@@ -13,9 +13,21 @@ body {
 
 .white-background {
   background-color: #D9230F;
+  width: 35%;
+  padding: 50px;
+  text-align: center;
   color: white;
-  padding: 15px;
-  margin-top: -20px;
+  margin: auto;
+}
+
+.button {
+  margin-top: 25px;
+}
+
+.middle {
+  margin: 50px auto;
+  height: 50%;
+  width: 50%;
 }
 
 .bottom {
