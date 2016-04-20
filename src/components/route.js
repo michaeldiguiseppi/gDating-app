@@ -22,10 +22,50 @@
             requireLogin: true,
           }
         })
-        .state('members.member', {
-          url: "^/member",
+        .state('members.view', {
+          url: "/view?id",
           templateUrl: "components/members/onemember.template.html",
           authenticate: true,
+          controller: function($scope, $rootScope, MemberService, $stateParams, $state) {
+              if ($rootScope.currentUser) {
+                MemberService.getOne($stateParams.id)
+                  .then(function(member) {
+                    $scope.member = member;
+                  });
+              }
+          },
+          data: {
+            requireLogin: true,
+          }
+        })
+        .state('members.search', {
+          url: "/search",
+          templateUrl: "components/members/members.template.html",
+          authenticate: false,
+          data: {
+            requireLogin: true,
+          }
+        })
+        .state('profile', {
+          url: "/profile",
+          templateUrl: "components/profile/profile.template.html",
+          authenticate: false,
+          controller: function($scope, $rootScope, MemberService, ProfileService) {
+            if ($rootScope.currentUser) {
+              var id = JSON.parse($rootScope.currentUser)._id;
+              MemberService.getOne(id)
+                .then(function(data) {
+                  $scope.user = data;
+                  $scope.user.dob = new Date(data.dob);
+                });
+            }
+            $scope.edit = function() {
+              ProfileService.edit($scope.user, JSON.parse($rootScope.currentUser)._id).then(function(data) {
+                console.log('Returned data: ', data);
+                ProfileService.setUserInfo(data);
+              });
+            };
+          },
           data: {
             requireLogin: true,
           }
@@ -48,22 +88,6 @@
           data: {
             requireLogin: false,
             blockLogin: true,
-          }
-        })
-        .state('search', {
-          url: "/search",
-          templateUrl: "components/members/members.template.html",
-          authenticate: false,
-          data: {
-            requireLogin: true,
-          }
-        })
-        .state('profile', {
-          url: "/profile",
-          templateUrl: "components/members/members.template.html",
-          authenticate: false,
-          data: {
-            requireLogin: true,
           }
         })
         .state('logout', {
