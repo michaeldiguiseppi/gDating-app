@@ -40,7 +40,7 @@
         })
         .state('members.search', {
           url: "/search",
-          templateUrl: "components/members/members.template.html",
+          templateUrl: "components/search/search.template.html",
           authenticate: false,
           data: {
             requireLogin: true,

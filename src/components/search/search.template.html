@@ -1,0 +1,92 @@
+
+    <div class="white-back">
+      <form class="form-horizontal" ng-submit="">
+        <br />
+        <div class="row">
+          <div class="col-lg-5 col-lg-offset-1">
+            <label for="username" class="form-control-label">Username</label>
+            <input type="text" class="form-control"  ng-model="search.username" />
+          </div>
+          <div class="col-lg-5">
+            <label for="email" class="form-control-label">Email Address</label>
+            <input type="text" class="form-control" placeholder="john.doe@email.com" ng-model="search.email" />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-lg-5 col-lg-offset-1">
+            <label for="gender" class="form-control-label">Gender</label>
+            <select ng-model="search.gender" class="form-control">
+              <option value="" disabled selected></option>
+              <option value="0">Male</option>
+              <option value="1">Female</option>
+              <option value="2">Other</option>
+              <option value="3">Declined to Answer</option>
+            </select>
+          </div>
+          <div class="col-lg-5">
+            <label for="age" class="form-control-label">Age</label>
+            <div class="row">
+              <div class="col-lg-5">
+                <select ng-model="search.age.min" class="form-control">
+                  <option value="" disabled selected>- Low -</option>
+                  <option value="{{age}}" ng-repeat="age in ages">{{age}}</option>
+                </select>
+              </div>
+              <span>to</span>
+              <div class="col-lg-5 col-lg-offset-1">
+                <select ng-model="search.age.max" class="form-control">
+                  <option value="" disabled selected>- High -</option>
+                  <option value="{{age}}" ng-repeat="age in ages">{{age}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1">
+            <label for="username" class="form-control-label">Username</label>
+            <input type="text" class="form-control" placeholder="john_doe1964" ng-model="user.username" />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-lg-5 col-lg-offset-1">
+            <label for="dob" class="form-control-label">Date of Birth</label>
+            <input type="date" class="form-control" ng-model="user.dob" />
+          </div>
+          <div class="col-lg-5">
+            <label for="phone" class="form-control-label">Phone Number</label>
+            <input type="text" class="form-control" placeholder="555-555-5555" ng-model="user.phone" />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-lg-3 col-lg-offset-1">
+            <label for="lat" class="form-control-label">Latitude</label>
+            <input type="text" class="form-control" placeholder="39.7392 N" ng-model="user.address.geo.lat" />
+          </div>
+          <div class="col-lg-3">
+            <label for="lng" class="form-control-label">Longitude</label>
+            <input type="text" class="form-control" placeholder="104.9903 W" ng-model="user.address.geo.lng" />
+          </div>
+          <div class="col-lg-4">
+            <label for="slug" class="form-control-label">Unique URL ID</label>
+            <input type="text" class="form-control" placeholder="(test-example-1234)" ng-model="user.slug" />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1 text-center">
+            <button type="submit" class="btn btn-success btn-md wide">Submit</button>
+          </div>
+        </div>
+        <br />
+      </form>
+      <div class="col-lg-10 col-lg-offset-1">
+        <div class="alert alert-danger" ng-repeat="(key, error) in errors">
+          <p class="text-center">{{ error.message }}</p>
+        </div>
+      </div>
+    </div>
