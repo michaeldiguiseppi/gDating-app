@@ -26,13 +26,34 @@
           url: "/view?id",
           templateUrl: "components/members/onemember.template.html",
           authenticate: true,
-          controller: function($scope, $rootScope, MemberService, $stateParams, $state) {
-              if ($rootScope.currentUser) {
-                MemberService.getOne($stateParams.id)
-                  .then(function(member) {
-                    $scope.member = member;
-                  });
-              }
+          controller: function($scope, $rootScope, $state, $stateParams, ProfileService, MemberService) {
+            $scope.matched = false;
+            $scope.liked = false;
+            $scope.getMatches = function() {
+              var currentUser = JSON.parse($rootScope.currentUser);
+              MemberService.getMatches(currentUser._id).then(function(data) {
+                if (data.indexOf(currentUser._id) !== -1) {
+                  $scope.liked = true;
+                }
+              });
+            };
+            MemberService.getOne($stateParams.id)
+              .then(function(member) {
+                $scope.member = member;
+                var currentUser = JSON.parse($rootScope.currentUser);
+                $scope.getMatches();
+                if (currentUser._matches.indexOf($scope.member._id) !== -1) {
+                  $scope.matched = true;
+                }
+              });
+            $scope.addMatch = function() {
+              var currentUser = JSON.parse($rootScope.currentUser);
+              MemberService.addMatch(currentUser._id, $scope.member._id).then(function(data) {
+                ProfileService.setSecondaryInfo(data);
+                $scope.matched = true;
+              });
+            };
+
           },
           data: {
             requireLogin: true,

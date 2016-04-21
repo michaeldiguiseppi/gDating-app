@@ -15,6 +15,16 @@
           return crudService.getOne('members', id).then(function(data) {
             return data.data.data;
           });
+        },
+        getMatches: function(id) {
+          return crudService.getMatches('members', id).then(function(data) {
+            return data.data.data;
+          });
+        },
+        addMatch: function(user, match) {
+          return crudService.addMatch('members', user, match).then(function(data) {
+            return data.data.data;
+          });
         }
       };
     }

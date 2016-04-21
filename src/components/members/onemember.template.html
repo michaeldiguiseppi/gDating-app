@@ -20,6 +20,26 @@
       <p>
         {{ member.email }}
       </p>
+      <hr />
+      <div class="row">
+        <div class="col-lg-3">
+          <span class="blue" ng-show="member._matches.length > 5">Popular</span>
+        </div>
+        <div class="col-lg-3">
+          <span class="black">Near You!</span>
+        </div>
+        <div class="col-lg-3">
+          <span class="red" ng-show="liked">Likes You!</span>
+        </div>
+        <div class="col-lg-3">
+          <button ng-show="!matched" ng-click="addMatch()" class="btn btn-md pink">Match Me!</button>
+          <span class="glyphicon glyphicon-heart" ng-show="matched" style="font-size: 24px; color: red;"></span>
+        </div>
+      </div>
     </div>
+  </div>
+  <hr />
+  <div class="row">
+
   </div>
 </div>

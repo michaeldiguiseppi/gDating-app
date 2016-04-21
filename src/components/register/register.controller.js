@@ -7,9 +7,10 @@
   function RegisterCtrl ($scope, RegisterService, $state) {
     $scope.user = {};
     $scope.register = function() {
-      RegisterService.register(this.user).then(function(data) {
-        if (data.status === 200) {
-          RegisterService.setUserInfo(data);
+      RegisterService.register($scope.user).then(function(data) {
+        console.log(data.data.data);
+        if (data.status === 201) {
+          RegisterService.setUserInfo(data.data.data);
           $state.go('members');
         } else {
           $scope.errors = data.data.errors;

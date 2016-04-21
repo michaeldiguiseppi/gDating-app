@@ -22,7 +22,12 @@ angular.module('myApp')
         $window.localStorage.setItem('token', JSON.stringify(user.data.data.token));
       },
       setSecondaryInfo: function(user) {
-        $window.localStorage.setItem('user', JSON.stringify(user.data));
+        if (user.data) {
+          $window.localStorage.setItem('user', JSON.stringify(user.data));
+        } else {
+          $window.localStorage.setItem('user', JSON.stringify(user));
+        }
+
       }
     };
   }

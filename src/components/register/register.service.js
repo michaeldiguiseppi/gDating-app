@@ -15,8 +15,8 @@
           });
         },
         setUserInfo: function(user) {
-          $window.localStorage.setItem('user', JSON.stringify(user.data.data.user));
-          $window.localStorage.setItem('token', JSON.stringify(user.data.data.token));
+          $window.localStorage.setItem('user', JSON.stringify(user.data));
+          $window.localStorage.setItem('token', JSON.stringify(user.token));
         }
       };
     }]);

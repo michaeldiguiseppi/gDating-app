@@ -4,7 +4,7 @@
       return {
         restrict: 'E',
         templateUrl: '/components/members/members.template.html',
-        controller: function($scope, MemberService) {
+        controller: function($scope, MemberService, $rootScope) {
           $scope.loading = true;
           var currentMembers = [];
           var offset = 0;
@@ -36,7 +36,6 @@
               }
             };
           });
-
           $scope.getOne = function(id) {
             MemberService.getOne(id).then(function(data) {
               $scope.member = data;

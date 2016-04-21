@@ -22,6 +22,7 @@
         }
       };
     });
+
   angular.module('myApp')
     .filter('age', function() {
       return function(input) {

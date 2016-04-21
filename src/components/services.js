@@ -63,7 +63,31 @@
           }).catch(function(err) {
             return err;
           });
-        }
+        },
+        getMatches: function(resource, id) {
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/' + resource + '/' + id + '/matches'
+          }).then(function(data) {
+            return data;
+          }).catch(function(err) {
+            return err;
+          });
+        },
+        addMatch: function(resource, user, match) {
+          return $http({
+            method: 'POST',
+            url: baseUrl + '/' + resource + '/' + user + '/matches',
+            data: {
+              id: user,
+              "_match": match
+            }
+          }).then(function(data) {
+            return data;
+          }).catch(function(err) {
+            return err;
+          });
+        },
       };
     }]);
 

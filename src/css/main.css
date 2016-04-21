@@ -97,3 +97,27 @@ li.inline {
   color: white;
   text-decoration: none;
 }
+
+img {
+  height: 128px;
+  width: 128px;
+}
+
+.blue {
+  color: #12cef0;
+  font-weight: bold;
+}
+
+.red {
+  color: red;
+}
+
+.black {
+  color: black;
+  font-weight: bold;
+}
+
+.pink {
+  background-color: pink;
+  color: black;
+}
