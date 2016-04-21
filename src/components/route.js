@@ -1,7 +1,7 @@
 
 (function() {
     angular.module('myApp')
-    .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+    .config(function($stateProvider, $urlRouterProvider) {
       $urlRouterProvider.otherwise("/");
       $stateProvider
         .state('home', {
@@ -42,6 +42,7 @@
           url: "/search",
           templateUrl: "components/search/search.template.html",
           authenticate: false,
+          controller: 'SearchCtrl',
           data: {
             requireLogin: true,
           }
@@ -62,7 +63,7 @@
             $scope.edit = function() {
               ProfileService.edit($scope.user, JSON.parse($rootScope.currentUser)._id).then(function(data) {
                 console.log('Returned data: ', data);
-                ProfileService.setUserInfo(data);
+                ProfileService.setSecondaryInfo(data.data);
               });
             };
           },
