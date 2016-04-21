@@ -1,7 +1,7 @@
 <div class="well well-lg top-down" ng-show="member">
   <div class="row">
     <div class="col-lg-4">
-      <img ng-src="{{member.avatar}}" alt="member_picture" />
+      <img class="avatar" ng-src="{{member.avatar}}" alt="member_picture" />
     </div>
     <div class="col-lg-8">
       <h4>{{ member.names.firstName }} {{ member.names.lastName }}</h4>
@@ -26,7 +26,7 @@
           <span class="blue" ng-show="member._matches.length > 5">Popular</span>
         </div>
         <div class="col-lg-3">
-          <span class="black">Near You!</span>
+          <span class="black" ng-show="distance">Near You!</span>
         </div>
         <div class="col-lg-3">
           <span class="red" ng-show="liked">Likes You!</span>

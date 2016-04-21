@@ -27,7 +27,23 @@ angular.module('myApp')
         } else {
           $window.localStorage.setItem('user', JSON.stringify(user));
         }
-
+      },
+      getCurrentLocation: function() {
+        return new Promise(function(resolve, reject) {
+            navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+      },
+      showPosition: function(position) {
+        var latlon = position.coords.latitude + "," + position.coords.longitude;
+        var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=680x534&sensor=false";
+        return img_url;
       }
     };
   }
+
+  /*
+  function showPosition(position) {
+
+}
+
+  */

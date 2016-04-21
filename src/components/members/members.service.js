@@ -25,7 +25,7 @@
           return crudService.addMatch('members', user, match).then(function(data) {
             return data.data.data;
           });
-        }
+        },
       };
     }
 })();

@@ -73,17 +73,22 @@
           templateUrl: "components/profile/profile.template.html",
           authenticate: false,
           controller: function($scope, $rootScope, MemberService, ProfileService) {
-            if ($rootScope.currentUser) {
-              var id = JSON.parse($rootScope.currentUser)._id;
+              var currentUser = JSON.parse($rootScope.currentUser);
+              var id = currentUser._id;
               MemberService.getOne(id)
                 .then(function(data) {
                   $scope.user = data;
                   $scope.user.dob = new Date(data.dob);
                 });
-            }
+            var data = {
+              coords: {
+                latitude: currentUser.address.geo.lat,
+                longitude: currentUser.address.geo.lng,
+              }
+            };
+            $scope.img_url = ProfileService.showPosition(data);
             $scope.edit = function() {
               ProfileService.edit($scope.user, JSON.parse($rootScope.currentUser)._id).then(function(data) {
-                console.log('Returned data: ', data);
                 ProfileService.setSecondaryInfo(data.data);
               });
             };
