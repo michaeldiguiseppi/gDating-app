@@ -4,9 +4,21 @@
       <img ng-src="{{member.avatar}}" alt="member_picture" />
     </div>
     <div class="col-lg-8">
-      <h4>{{ member.username }}</h4>
+      <h4>{{ member.names.firstName }} {{ member.names.lastName }}</h4>
       <p>
-        Date of Birth: {{ member.dob | date:"MM/dd/yyyy" }}
+        Username: {{ member.username }}
+      </p>
+      <p>
+        Date of Birth: {{ member.dob | date:"MM/dd/yyyy" }} (~{{ member.dob | age }} years old)
+      </p>
+      <p>
+        Gender: {{ member.gender | gender }}
+      </p>
+      <p>
+        Interested in: {{ member.interestedIn | interested }}
+      </p>
+      <p>
+        {{ member.email }}
       </p>
     </div>
   </div>
