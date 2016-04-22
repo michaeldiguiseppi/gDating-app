@@ -1,5 +1,5 @@
 
-    <div class="white-behind">
+    <div class="white-behind" ng-show="!searchResults">
       <form class="form-horizontal" ng-submit="searchFunc()">
         <br />
         <div class="row">
@@ -28,7 +28,7 @@
             <label for="age" class="form-control-label">Age</label>
             <div class="row">
               <div class="col-lg-5">
-                <select ng-model="search.age.min" class="form-control overflow">
+                <select ng-model="search.minAge" class="form-control overflow">
                   <option value="" disabled selected>- Low -</option>
                   <option value="{{age}}" ng-repeat="age in ages">{{age}}</option>
                 </select>
@@ -37,7 +37,7 @@
                 <h4 class="text-center">to</h4>
               </div>
               <div class="col-lg-5 col-lg-offset-1">
-                <select ng-model="search.age.max" class="form-control">
+                <select ng-model="search.maxAge" class="form-control">
                   <option value="" disabled selected>- High -</option>
                   <option value="{{age}}" ng-repeat="age in ages">{{age}}</option>
                 </select>
@@ -51,16 +51,16 @@
             <label for="interested" class="form-contrl-label">Interested In</label>
             <br />
             <label class="checkbox-inline">
-              <input type="checkbox" value="0" name="interested" ng-model="search.interested.males">Males
+              <input type="checkbox" checklist-value="0" name="interested" checklist-model="search.interested">Males
             </label>
             <label class="checkbox-inline">
-              <input type="checkbox" value="1" name="interested" ng-model="search.interested.females">Females
+              <input type="checkbox" checklist-value="1" name="interested" checklist-model="search.interested">Females
             </label>
             <label class="checkbox-inline">
-              <input type="checkbox" value="2" name="interested" ng-model="search.interested.both">Males or Females
+              <input type="checkbox" checklist-value="2" name="interested" checklist-model="search.interested">Males or Females
             </label>
             <label class="checkbox-inline">
-              <input type="checkbox" value="3" name="interested" ng-model="search.interested.friends">Friends Only
+              <input type="checkbox" checklist-value="3" name="interested" checklist-model="search.interested">Friends Only
             </label>
           </div>
         </div>
@@ -70,10 +70,10 @@
             <label for="searchType" class="form-control-label">Search Type</label>
             <br />
             <label class="radio-inline">
-              <input type="radio" value="OR" ng-model="search.searchType">Any of the above can match
+              <input type="radio" value="false" ng-model="search.exclusive">Any of the above can match
             </label>
             <label class="radio-inline">
-              <input type="radio" value="AND" ng-model="search.searchType">Everything above must match
+              <input type="radio" value="true" ng-model="search.exclusive">Everything above must match
             </label>
           </div>
         </div>
@@ -88,6 +88,20 @@
       <div class="col-lg-10 col-lg-offset-1">
         <div class="alert alert-danger" ng-repeat="(key, error) in errors">
           <p class="text-center">{{ error.message }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-lg btn-info" ng-show="showReset" ng-click="resetSearch()">New Search</button>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-lg-3" ng-repeat="result in searchResults">
+        <div class="row" ng-click="getOne(result.slug)">
+          <img class="avatar" ng-src="{{result.avatar}}" alt="member_image" />
+        </div>
+        <div class="row">
+          <p>{{ result.username }}</p>
         </div>
       </div>
     </div>
