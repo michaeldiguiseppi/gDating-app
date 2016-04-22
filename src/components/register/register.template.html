@@ -53,15 +53,47 @@
       <div class="row">
         <div class="col-lg-3 col-lg-offset-1">
           <label for="lat" class="form-control-label">Latitude</label>
-          <input type="text" class="form-control" placeholder="39.7392 N" ng-model="user.lat" />
+          <input type="text" class="form-control" placeholder="39.7392 N" ng-model="user.address.geo.lat" />
         </div>
         <div class="col-lg-3">
           <label for="lng" class="form-control-label">Longitude</label>
-          <input type="text" class="form-control" placeholder="104.9903 W" ng-model="user.lng" />
+          <input type="text" class="form-control" placeholder="104.9903 W" ng-model="user.address.geo.lng" />
         </div>
         <div class="col-lg-4">
           <label for="slug" class="form-control-label">Unique URL ID</label>
           <input type="text" class="form-control" placeholder="(test-example-1234)" ng-model="user.slug" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-1">
+          <label for="gender" class="form-control-label">Gender</label>
+          <select ng-model="user.gender" class="form-control">
+            <option value="" disabled selected>- Make a Selection -</option>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+            <option value="2">Other</option>
+            <option value="3">Declined to Answer</option>
+          </select>
+        </div>
+        <div class="col-lg-6">
+          <label for="interested" class="form-control-label">Interested In</label>
+          <br />
+          <label class="checkbox-inline">
+            <input type="checkbox" checklist-value="0" name="interested" checklist-model="user.interestedIn">Males
+          </label>
+          <br />
+          <label class="checkbox-inline">
+            <input type="checkbox" checklist-value="1" name="interested" checklist-model="user.interestedIn">Females
+          </label>
+          <br />
+          <label class="checkbox-inline">
+            <input type="checkbox" checklist-value="2" name="interested" checklist-model="user.interestedIn">Males or Females
+          </label>
+          <br />
+          <label class="checkbox-inline">
+            <input type="checkbox" checklist-value="3" name="interested" checklist-model="user.interestedIn">Friends Only
+          </label>
         </div>
       </div>
       <br />
