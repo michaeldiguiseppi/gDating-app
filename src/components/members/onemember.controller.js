@@ -6,10 +6,8 @@
         $scope.liked = false;
         $scope.getMatches = function() {
           var currentUser = JSON.parse($rootScope.currentUser);
-          MemberService.getMatches(currentUser._id).then(function(data) {
-            if (data.indexOf(currentUser._id) !== -1) {
-              $scope.liked = true;
-            }
+          return MemberService.getMatches(currentUser._id).then(function(data) {
+            return data;
           });
         };
         MemberService.getOne($stateParams.slug)
@@ -17,7 +15,14 @@
             console.log(member);
             $scope.member = member;
             var currentUser = JSON.parse($rootScope.currentUser);
-            $scope.getMatches();
+            $scope.getMatches().then(function(data) {
+              var matchArr = data.map(function(match) {
+                return match._id;
+              });
+              if (matchArr.indexOf($scope.member._id) !== -1) {
+                $scope.liked = true;
+              }
+            });
             if (currentUser._matches.indexOf($scope.member._id) !== -1) {
               $scope.matched = true;
             }
