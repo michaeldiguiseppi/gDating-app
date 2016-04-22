@@ -4,10 +4,31 @@
       function($scope, $rootScope, MemberService, ProfileService) {
           var currentUser = JSON.parse($rootScope.currentUser);
           var slug = currentUser.slug;
+          $scope.user = {
+           username: '',
+           email: '',
+           password: '',
+           gender: 0,
+           slug: '',
+           names: {
+             firstName: '',
+             lastName: '',
+           },
+           dob: '',
+           address: {
+             zipcode: '',
+             geo: {
+               lat: '',
+               lng: ''
+             }
+           },
+           interestedIn: []
+         };
           MemberService.getOne(slug)
             .then(function(data) {
               $scope.user = data;
               $scope.user.dob = new Date(data.dob);
+              $scope.user.gender = data.gender.toString();
             });
         var data = {
           coords: {
@@ -19,6 +40,9 @@
         $scope.edit = function() {
           ProfileService.edit($scope.user, JSON.parse($rootScope.currentUser)._id).then(function(data) {
             ProfileService.setSecondaryInfo(data.data);
+            $scope.message = 'Information Updated Successfully.';
+          }).catch(function(err) {
+            $scope.fail = 'Something went wrong. Please try again.';
           });
         };
       }]);
