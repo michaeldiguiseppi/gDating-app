@@ -100,7 +100,31 @@
           }
           return $http({
             method: 'GET',
-            url: baseUrl + '/' + resource + '/search?' + queryString
+            url: baseUrl + '/' + resource + '/search?' + queryString + '&active=true'
+          }).then(function(data) {
+            return data;
+          }).catch(function(err) {
+            return err;
+          });
+        },
+        getConversations: function(resource, user, match) {
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/' + resource + '/' + user + '/conversations/' + match,
+          }).then(function(data) {
+            return data;
+          }).catch(function(err) {
+            return err;
+          });
+        },
+        addConversation: function(resource, user, match, message) {
+          return $http({
+            method: 'POST',
+            url: baseUrl + '/' + resource + '/' + user + '/conversations',
+            data: {
+              content: message,
+              _recipient: match
+            }
           }).then(function(data) {
             return data;
           }).catch(function(err) {
@@ -109,5 +133,4 @@
         },
       };
     }]);
-
 })();

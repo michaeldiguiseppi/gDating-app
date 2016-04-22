@@ -123,5 +123,12 @@
           <img ng-src="{{img_url}}" alt="map"/>
         </div>
       </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+          <span ng-show="!inactive"><button class="btn btn-lg btn-danger" ng-click="deactivate()">Deactivate</button></span>
+          <span ng-show="inactive"><button class="btn btn-lg btn-success" ng-click="activate()">Activate</button></span>
+        </div>
+      </div>
     </div>
   </div>

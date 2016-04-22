@@ -1,2 +1,2 @@
 
-angular.module('myApp', ['ui.router', 'checklist-model']);
+angular.module('myApp', ['ui.router', 'checklist-model', 'luegg.directives']);

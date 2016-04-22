@@ -26,6 +26,16 @@
             return data.data.data;
           });
         },
+        getConversations: function(user, match) {
+          return crudService.getConversations('members', user, match).then(function(data) {
+            return data.data.data;
+          });
+        },
+        addConversation: function(user, match, message) {
+          return crudService.addConversation('members', user, match, message).then(function(data) {
+            return data;
+          });
+        }
       };
     }
 })();

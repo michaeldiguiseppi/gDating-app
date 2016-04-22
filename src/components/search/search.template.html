@@ -1,4 +1,6 @@
-
+  <div class="row">
+    <button class="btn btn-lg btn-info" ng-show="showReset" ng-click="resetSearch()">New Search</button>
+  </div>
     <div class="white-behind" ng-show="!searchResults">
       <form class="form-horizontal" ng-submit="searchFunc()">
         <br />
@@ -91,17 +93,16 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <button class="btn btn-lg btn-info" ng-show="showReset" ng-click="resetSearch()">New Search</button>
-    </div>
     <br />
     <div class="row">
-      <div class="col-lg-3" ng-repeat="result in searchResults">
-        <div class="row" ng-click="getOne(result.slug)">
-          <img class="avatar" ng-src="{{result.avatar}}" alt="member_image" />
-        </div>
-        <div class="row">
-          <p>{{ result.username }}</p>
+      <div class="results" ng-show="searchResults">
+        <div class="col-lg-3" ng-repeat="result in searchResults">
+          <div class="row" ng-click="getOne(result.slug)">
+            <img class="avatar" ng-src="{{result.avatar}}" alt="member_image" />
+          </div>
+          <div class="row">
+            <p>{{ result.username }}</p>
+          </div>
         </div>
       </div>
     </div>

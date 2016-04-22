@@ -36,6 +36,7 @@
             longitude: currentUser.address.geo.lng,
           }
         };
+        $scope.inactive = false;
         $scope.img_url = ProfileService.showPosition(data);
         $scope.edit = function() {
           ProfileService.edit($scope.user, JSON.parse($rootScope.currentUser)._id).then(function(data) {
@@ -43,6 +44,23 @@
             $scope.message = 'Information Updated Successfully.';
           }).catch(function(err) {
             $scope.fail = 'Something went wrong. Please try again.';
+          });
+        };
+        $scope.deactivate = function() {
+          var decision = confirm('Are you sure you want to deactivate your account?');
+          if (decision) {
+            ProfileService.edit({active: false}, JSON.parse($rootScope.currentUser)._id).then(function(data) {
+              ProfileService.setSecondaryInfo(data.data);
+              $scope.message = 'Profile Deactivated.';
+              $scope.inactive = true;
+            });
+          }
+        };
+        $scope.activate = function() {
+          ProfileService.edit({active: true}, JSON.parse($rootScope.currentUser)._id).then(function(data) {
+            ProfileService.setSecondaryInfo(data.data);
+            $scope.message = 'Profile Activated.';
+            $scope.inactive = false;
           });
         };
       }]);

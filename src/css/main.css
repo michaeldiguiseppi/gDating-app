@@ -32,6 +32,16 @@ footer.navbar {
   position: absolute;
 }
 
+.members {
+  height: calc(650px - 50px);
+  overflow: scroll;
+}
+
+.results {
+  height: calc(650px - 120px);
+  overflow: scroll;
+}
+
 .white-back {
   background-color: rgba(250, 250, 250, 0.62);
 }
@@ -113,6 +123,7 @@ cite {
 .inline-none {
   text-align: left;
   list-style-type: none;
+  margin-left: 25px;
 }
 
 li.inline {
@@ -151,4 +162,31 @@ li.inline {
 
 .overflow {
   overflow-y: scroll;
+}
+
+.messages {
+  max-height: 225px;
+  overflow: scroll;
+}
+
+.them {
+  position: relative;
+  width: 50%;
+  background-color: seagreen;
+  padding: 15px;
+  right: 50%;
+  left: 0;
+  color: black;
+  text-align: left;
+}
+
+.me {
+  position: relative;
+  width: 50%;
+  background-color: lightblue;
+  padding: 15px;
+  right: 0;
+  left: 50%;
+  color: black;
+  text-align: right;
 }

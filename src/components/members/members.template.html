@@ -2,36 +2,37 @@
   <div ng-show="loading">
     <img class="middle" src="/images/ajax-loader.gif" />
   </div>
-
-  <div ng-show="!loading" ng-repeat="member in members">
-    <a ui-sref="members.view({ slug: member.slug })">
-      <div class="well well-lg">
-        <div class="row">
-          <div class="col-lg-4">
-            <img class="avatar" ng-src="{{member.avatar}}" alt="member_picture" />
+  <div class="members">
+    <div ng-show="!loading" ng-repeat="member in members">
+      <a ui-sref="members.view({ slug: member.slug })" ng-show="member.active">
+        <div class="well well-lg">
+          <div class="row">
+            <div class="col-lg-4">
+              <img class="avatar" ng-src="{{member.avatar}}" alt="member_picture" />
+            </div>
+            <div class="col-lg-8">
+              <h4>{{ member.username }}</h4>
+              <p>
+                Date of Birth: {{ member.dob | date:"MM/dd/yyyy" }}
+              </p>
+              <p>
+                Gender: {{ member.gender | gender }}
+              </p>
+              <p>
+                Interested in: {{ member.interestedIn | interested }}
+              </p>
+              <hr />
+            </div>
           </div>
-          <div class="col-lg-8">
-            <h4>{{ member.username }}</h4>
-            <p>
-              Date of Birth: {{ member.dob | date:"MM/dd/yyyy" }}
-            </p>
-            <p>
-              Gender: {{ member.gender | gender }}
-            </p>
-            <p>
-              Interested in: {{ member.interestedIn | interested }}
-            </p>
-            <hr />
+          <div class="row">
+            <div class="col-lg-12">
+              <p>
+                  {{ member.email }}
+              </p>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>
-                {{ member.email }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </div>

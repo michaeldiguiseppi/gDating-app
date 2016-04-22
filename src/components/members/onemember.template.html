@@ -40,6 +40,17 @@
   </div>
   <hr />
   <div class="row">
-
+    <div class="messages" ng-repeat="conversation in conversations" scroll-glue>
+      <p ng-repeat="message in conversation.messages" ng-class="(currentUser._id == message._sender) ? 'me' : 'them'">{{ message.content }}</p>
+    </div>
+    <br />
+    <form class="form-horizontal" ng-submit="sendMessage()">
+      <div class="col-lg-10">
+        <input type="text" class="form-control" placeholder="Enter message to send" ng-model="messageToSend"/>
+      </div>
+      <div class="col-lg-2">
+        <button type="submit" class="btn btn-md btn-success">Send Message</button>
+      </div>
+    </form>
   </div>
 </div>
