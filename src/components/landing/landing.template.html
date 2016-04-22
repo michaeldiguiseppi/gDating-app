@@ -4,15 +4,12 @@
     <br />
     <a ui-sref="register" class="btn btn-info btn-lg button">Get Started!</a>
   </h1>
-
 </div>
-
 <div class="bottom">
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4" ng-show="loading">
       <img class="middle" src="/images/ajax-loader.gif" />
     </div>
-
     <div ng-show="!loading" class="col-lg-4" ng-repeat="member in members">
       <div class="well well-lg quote">
         <div class="col-lg-4">
@@ -27,4 +24,5 @@
       </div>
     </div>
   </div>
+  <br /><br />
 </div>
