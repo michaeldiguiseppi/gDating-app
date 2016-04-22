@@ -9,18 +9,22 @@ html {
 }
 
 body {
-  background-image: url('../images/denver_skyline.jpg');
   background-repeat: no-repeat;
   height: 100%;
   background-size: cover;
-  padding-bottom: 70px;
+  padding-bottom: 90px;
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, red, black); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, red, black); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, red, black); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, red, black); /* Standard syntax */
 }
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: 40px;
 }
 
 footer.navbar {
@@ -59,7 +63,7 @@ footer.navbar {
 }
 
 .middle {
-  margin: 50px auto;
+  margin-left: 90px;
   height: 50%;
   width: 50%;
 }
@@ -69,6 +73,7 @@ footer.navbar {
   bottom: 0;
   right: 0;
   left: 0;
+  padding-bottom: 25px;
 }
 
 .quote {
