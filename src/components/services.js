@@ -13,10 +13,11 @@
             return err;
           });
         },
-        getOne: function(resource, id) {
+        getOne: function(resource, slug) {
+          console.log('Slug: ', slug);
           return $http({
             method: 'GET',
-            url: baseUrl + '/' + resource + '/' + id
+            url: baseUrl + '/' + resource + '/search/' + slug
           }).then(function(data) {
             return data;
           }).catch(function(err) {

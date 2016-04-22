@@ -6,13 +6,17 @@
 body {
   background-image: url('../images/denver_skyline.jpg');
   background-repeat: no-repeat;
-  height: 1500px;
   width: 100%;
   background-size: cover;
 }
 
 .white-back {
-  background-color: rgba(250, 250, 250, 0.62);;
+  background-color: rgba(250, 250, 250, 0.62);
+}
+
+.white-behind {
+  background-color: rgba(250, 250, 250, 0.62);
+  margin-right: -100px;
 }
 
 .white-back label {

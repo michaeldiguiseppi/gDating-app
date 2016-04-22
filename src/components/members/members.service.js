@@ -11,8 +11,8 @@
               return data.data.data;
             });
         },
-        getOne: function(id) {
-          return crudService.getOne('members', id).then(function(data) {
+        getOne: function(slug) {
+          return crudService.getOne('members', slug).then(function(data) {
             return data.data.data;
           });
         },

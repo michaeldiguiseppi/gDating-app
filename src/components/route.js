@@ -23,38 +23,10 @@
           }
         })
         .state('members.view', {
-          url: "/view?id",
+          url: "/view?slug",
           templateUrl: "components/members/onemember.template.html",
           authenticate: true,
-          controller: function($scope, $rootScope, $state, $stateParams, ProfileService, MemberService) {
-            $scope.matched = false;
-            $scope.liked = false;
-            $scope.getMatches = function() {
-              var currentUser = JSON.parse($rootScope.currentUser);
-              MemberService.getMatches(currentUser._id).then(function(data) {
-                if (data.indexOf(currentUser._id) !== -1) {
-                  $scope.liked = true;
-                }
-              });
-            };
-            MemberService.getOne($stateParams.id)
-              .then(function(member) {
-                $scope.member = member;
-                var currentUser = JSON.parse($rootScope.currentUser);
-                $scope.getMatches();
-                if (currentUser._matches.indexOf($scope.member._id) !== -1) {
-                  $scope.matched = true;
-                }
-              });
-            $scope.addMatch = function() {
-              var currentUser = JSON.parse($rootScope.currentUser);
-              MemberService.addMatch(currentUser._id, $scope.member._id).then(function(data) {
-                ProfileService.setSecondaryInfo(data);
-                $scope.matched = true;
-              });
-            };
-
-          },
+          controller: 'OneMemberCtrl',
           data: {
             requireLogin: true,
           }
@@ -72,27 +44,7 @@
           url: "/profile",
           templateUrl: "components/profile/profile.template.html",
           authenticate: false,
-          controller: function($scope, $rootScope, MemberService, ProfileService) {
-              var currentUser = JSON.parse($rootScope.currentUser);
-              var id = currentUser._id;
-              MemberService.getOne(id)
-                .then(function(data) {
-                  $scope.user = data;
-                  $scope.user.dob = new Date(data.dob);
-                });
-            var data = {
-              coords: {
-                latitude: currentUser.address.geo.lat,
-                longitude: currentUser.address.geo.lng,
-              }
-            };
-            $scope.img_url = ProfileService.showPosition(data);
-            $scope.edit = function() {
-              ProfileService.edit($scope.user, JSON.parse($rootScope.currentUser)._id).then(function(data) {
-                ProfileService.setSecondaryInfo(data.data);
-              });
-            };
-          },
+          controller: 'ProfileCtrl',
           data: {
             requireLogin: true,
           }

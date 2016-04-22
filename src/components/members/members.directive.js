@@ -36,8 +36,8 @@
               }
             };
           });
-          $scope.getOne = function(id) {
-            MemberService.getOne(id).then(function(data) {
+          $scope.getOne = function(slug) {
+            MemberService.getOne(slug).then(function(data) {
               $scope.member = data;
               $scope.loading = false;
             });

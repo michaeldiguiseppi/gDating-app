@@ -4,7 +4,7 @@
   </div>
 
   <div ng-show="!loading" ng-repeat="member in members">
-    <a ui-sref="members.view({ id: member._id })">
+    <a ui-sref="members.view({ slug: member.slug })">
       <div class="well well-lg">
         <div class="row">
           <div class="col-lg-4">
