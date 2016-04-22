@@ -3,11 +3,29 @@
   border-radius: 0;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-image: url('../images/denver_skyline.jpg');
   background-repeat: no-repeat;
-  width: 100%;
+  height: 100%;
   background-size: cover;
+  padding-bottom: 70px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+footer.navbar {
+  margin-bottom: 0;
+  position: absolute;
 }
 
 .white-back {
@@ -124,4 +142,8 @@ li.inline {
 .pink {
   background-color: pink;
   color: black;
+}
+
+.overflow {
+  overflow-y: scroll;
 }

@@ -35,7 +35,7 @@ angular.module('myApp')
       },
       showPosition: function(position) {
         var latlon = position.coords.latitude + "," + position.coords.longitude;
-        var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=680x534&sensor=false";
+        var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=500x500&sensor=false";
         return img_url;
       }
     };

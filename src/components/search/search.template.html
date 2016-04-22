@@ -28,7 +28,7 @@
             <label for="age" class="form-control-label">Age</label>
             <div class="row">
               <div class="col-lg-5">
-                <select ng-model="search.age.min" class="form-control">
+                <select ng-model="search.age.min" class="form-control overflow">
                   <option value="" disabled selected>- Low -</option>
                   <option value="{{age}}" ng-repeat="age in ages">{{age}}</option>
                 </select>
