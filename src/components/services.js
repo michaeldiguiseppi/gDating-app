@@ -89,6 +89,24 @@
             return err;
           });
         },
+        search: function(resource, data) {
+          var queryParams = Object.keys(data);
+          var queryString = '';
+          for (var i = 0; i < queryParams.length; i++) {
+            queryString += queryParams[i] + '=' + data[queryParams[i]];
+            if (i !== queryParams.length - 1) {
+              queryString += '&';
+            }
+          }
+          return $http({
+            method: 'GET',
+            url: baseUrl + '/' + resource + '/search?' + queryString
+          }).then(function(data) {
+            return data;
+          }).catch(function(err) {
+            return err;
+          });
+        },
       };
     }]);
 
