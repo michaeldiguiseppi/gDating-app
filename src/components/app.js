@@ -1,2 +1,2 @@
 
-angular.module('myApp', ['ui.router']);
+angular.module('myApp', ['ui.router', 'checklist-model']);
