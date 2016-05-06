@@ -1,7 +1,7 @@
 (function() {
   angular.module('myApp')
     .service('LoginService', ['$http', '$window', function($http, $window) {
-      var baseUrl = 'http://galvanize-student-apis.herokuapp.com/gdating';
+      var baseUrl = 'https://gdating-backend-api.herokuapp.com/gdating';
       return {
         login: function(data) {
           return $http({

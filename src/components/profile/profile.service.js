@@ -4,7 +4,7 @@ angular.module('myApp')
   ProfileService.$inject = ['$http', '$window'];
 
   function ProfileService ($http, $window) {
-    var baseUrl = 'http://galvanize-student-apis.herokuapp.com/gdating';
+    var baseUrl = ' https://gdating-backend-api.herokuapp.com/gdating';
     return {
       edit: function(data, id) {
         return $http({

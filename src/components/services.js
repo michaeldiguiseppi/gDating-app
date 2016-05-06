@@ -1,7 +1,7 @@
 (function() {
   angular.module('myApp')
     .service('crudService', ['$http', function($http) {
-      var baseUrl = 'http://galvanize-student-apis.herokuapp.com/gdating';
+      var baseUrl = 'https://gdating-backend-api.herokuapp.com/gdating';
       return {
         getAll: function(resource) {
           return $http({
