@@ -18,5 +18,8 @@
   },
   "dependencies": {
     "node-http-server": "^5.1.0"
+  },
+  "engines": {
+    "node": "^7.10.1"
   }
 }
